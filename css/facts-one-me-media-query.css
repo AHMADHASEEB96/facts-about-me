@@ -7,6 +7,10 @@
   #page-bar .container #navbar {
     font-size: 0.5rem;
   }
+  #top-navbar  {
+    display: none;
+  }
+
   #facts-sections-and-numbers {
     display: flex;
     align-items: center;
@@ -17,7 +21,7 @@
   }
 
   #facts-sections-holder p {
-    width:100%;
+    width: 100%;
     /* text-align: center; */
   }
   #message-container {
@@ -35,17 +39,16 @@
     align-items: flex-start;
     gap: 10px;
   }
-  
 
   #about-me p {
     font-size: 0.7rem;
   }
 
- #about-me button {
+  #about-me button {
     display: none;
   }
+
   #bottom-navbar {
     margin-bottom: 20px;
   }
 }
-
