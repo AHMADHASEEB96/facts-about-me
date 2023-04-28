@@ -192,11 +192,11 @@ main .container {
   /* justify-content: center; */
 }
 
-#navbar {
+.navbar {
   flex: 2;
 }
 
-#navbar ul {
+.navbar ul {
   display: flex;
   justify-content: space-between;
 }
@@ -246,7 +246,7 @@ main .container {
 
 #facts-sections-holder {
   flex: 3;
-  height: 40%;
+ 
 }
 
 .facts-sections {
@@ -430,3 +430,4 @@ textarea {
   /* flex-wrap: wrap; */
   margin-top: 20px;
 }
+
