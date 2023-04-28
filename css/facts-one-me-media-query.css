@@ -1,0 +1,33 @@
+/* Media query */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+  }
+
+  #page-bar .container #navbar{
+    font-size: 0.5rem;
+
+  }
+  #facts-numbers-holder {
+    display: none;
+  }
+
+  #facts-sections-holder {
+    width: 100%;
+  }
+  #message-container{
+    flex-direction: column;
+    gap: 5px;
+  } 
+  #unknown-sender p,
+  hr {
+    display: none;
+  }
+
+  #developer {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
