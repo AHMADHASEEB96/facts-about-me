@@ -6,7 +6,9 @@ const factsSectionsAndNumbersHolder = document.querySelector(
   `#facts-sections-and-numbers`
 );
 const factsSections = document.querySelectorAll(`.facts-sections`);
-const factsList = document.querySelector(`#facts-list`);
+const factsList = document.querySelectorAll(`.facts-list`);
+const factsListTop = document.querySelector(`#top-facts-list`);
+const factsListBottom = document.querySelector(`#bottom-facts-list`);
 const factsNumbersList = document.querySelector(`#facts-numbers-holder`);
 const textMeBtn = document.querySelectorAll(`.text-me-btn`);
 const textMeSection = document.getElementById(`text-me`);
@@ -35,7 +37,22 @@ factsSections.forEach((sec) => {
   // give them all a class
   listItem.className = `facts-list-items`;
   // Append the list item to the facts list
-  factsList.appendChild(listItem);
+  // a function to decide the media query
+  function myFunction(x) {
+    // if the screen is less than 768px append the created listITems to the bottom navbar
+    if (x.matches) {
+      // If media query matches
+      factsListBottom.appendChild(listItem);
+    } else {
+      // if the screen is not less than 768px append the created listITems to the top navbar
+      factsListTop.appendChild(listItem);
+    }
+  }
+
+  var x = window.matchMedia("(max-width: 768px)");
+  myFunction(x); // Call listener function at run time
+  x.addListener(myFunction); // Attach listener function on state changes
+
   // create a number span
   const noSpan = document.createElement(`span`);
   noSpan.setAttribute(`fact-no`, `${secNo}`);
@@ -249,27 +266,3 @@ myName.addEventListener(`click`, () => {
   aMessageFromMeDiv.classList.toggle(`hidden`);
 });
 
-
-// at the screen size of the mobile phones convert the list items texts into numbers to fit the screen size
-// function myFunction(x) {
-//   if (x.matches) {
-//     // If media query matches
-//     factsItems.forEach((li) => {
-//       const liNumber = li.getAttribute(`fact`);
-//       li.textContent = `0${liNumber}`;
-//     });
-//   } else {
-//     // get the name of the realted section
-//     factsItems.forEach((li) => {
-//       const liNumber = li.getAttribute(`fact`);
-//       li.textContent = `0${liNumber}`;
-//       const currentEl = document.querySelector(`[fact-sec-no = '${liNumber}']`);
-
-//       li.textContent = currentEl.getAttribute(`fact-name`);
-//     });
-//   }
-// }
-
-// var x = window.matchMedia("(max-width: 700px)");
-// myFunction(x); // Call listener function at run time
-// x.addListener(myFunction); // Attach listener function on state changes
