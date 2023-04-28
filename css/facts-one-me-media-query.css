@@ -4,21 +4,26 @@
     width: 95%;
   }
 
-  #page-bar .container #navbar{
+  #page-bar .container #navbar {
     font-size: 0.5rem;
-
+  }
+  #facts-sections-and-numbers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   #facts-numbers-holder {
     display: none;
   }
 
-  #facts-sections-holder {
-    width: 100%;
+  #facts-sections-holder p {
+    width:100%;
+    /* text-align: center; */
   }
-  #message-container{
+  #message-container {
     flex-direction: column;
     gap: 5px;
-  } 
+  }
   #unknown-sender p,
   hr {
     display: none;
@@ -30,4 +35,17 @@
     align-items: flex-start;
     gap: 10px;
   }
+  
+
+  #about-me p {
+    font-size: 0.7rem;
+  }
+
+ #about-me button {
+    display: none;
+  }
+  #bottom-navbar {
+    margin-bottom: 20px;
+  }
 }
+
