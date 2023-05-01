@@ -86,8 +86,10 @@ button {
 
 .hidden {
   display: none !important;
-  visibility: hidden;
-  width: 0px;
+  /* visibility: hidden; */ 
+  /* width: 0px; */
+  /* cant use those two last properties cause in media query when i change the display to block or flex still those tow properties will be activated marking the elements 
+  not visible and its width is zero */
 }
 
 .reveal-li {
@@ -264,7 +266,7 @@ main .container {
 }
 
 .facts-sections p {
-  width: 50%;
+  width: 80%;
 }
 
 #facts-numbers-holder {
@@ -429,4 +431,104 @@ textarea {
   /* display: flex; */
   /* flex-wrap: wrap; */
   margin-top: 20px;
+}
+
+/* Animated logo */
+
+/*  give those properties to all  elements in this component  */
+#animated-logo * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: consolas;
+}
+
+/* properties for the parent container of the elements in this component, in projects create a parent div and assign it those properties */
+/* center the circle */
+#animated-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+}
+
+.circle {
+  position: relative; /* To include the logo centered, */
+  width: 200px;
+  height: 200px;
+  /* background-color: #ccc; */
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  /* center the text */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  position: absolute;
+  /*makeitsmallerthantheparentcircle,*/
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  /* background-color: red; */
+  background-image: url("/media/images/20230212_201750 - Copy.jpg");
+  background-size: cover;
+}
+
+.text-div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /*rotatethetextdiv*/
+  animation: rotateTextDiv 10s linear infinite;
+  -webkit-animation: rotateTextDiv 10s linear infinite;
+}
+
+@keyframes rotateTextDiv {
+  0% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+  }
+}
+
+.text span {
+  position: absolute;
+  left: 50%;
+  font-size: 0.9em;
+  transform-origin: 0 100px; /*  to be half  of the parent width or height, study it more */
+}
+
+
+/* A better idea , choose a number of photos not only one, every second change the src of the logo using set time out  */
+
+#facts-slider {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  padding : 10px ;
+  margin: 10px 0; 
+}
+
+#facts-slider  i {
+  font-size: 2rem;
 }

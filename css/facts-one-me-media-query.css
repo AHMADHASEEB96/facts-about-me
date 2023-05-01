@@ -7,14 +7,42 @@
   #page-bar .container #navbar {
     font-size: 0.5rem;
   }
-  #top-navbar  {
+  #top-navbar {
     display: none;
   }
 
   #facts-sections-and-numbers {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100%;
+  }
+
+  #facts-sections-holder {
+    display: flex;
+    align-items: center;
+  }
+  #animated-logo {
+    min-height: 10%;
+    margin-bottom: 10px;
+  }
+  .circle {
+    width: 100px;
+    height: 100px;
+  }
+  .logo {
+    width: 75px;
+    height: 75px;
+  }
+  .text-div {
+    width: 100%; /* to be 100% of the parent */
+    height:100%;
+  }
+  .text span {
+   
+    font-size: 0.5em;
+    transform-origin: 0 50px; /*  to be half  of the parent width or height, study it more */
   }
   #facts-numbers-holder {
     display: none;
@@ -35,13 +63,20 @@
 
   #developer {
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
+  }
+
+  #developer-icons-section {
+    display: flex;
+    width: 100%;
+    justify-content: center;
   }
 
   #about-me p {
     font-size: 0.7rem;
+    text-align: center;
   }
 
   #about-me button {
@@ -50,5 +85,10 @@
 
   #bottom-navbar {
     margin-bottom: 20px;
+    display: none;
+  }
+
+  #facts-slider {
+    display: flex !important;
   }
 }

@@ -16,6 +16,10 @@ const unknownSenderMessage = document.querySelector(`.hide-sender-info`);
 const unnecessarySenderInfo = document.querySelectorAll(`.hide-info`);
 const aMessageFromMeDiv = document.getElementById(`about-me`);
 const myName = document.getElementById(`my-name`);
+// slider arrows
+const leftArrow = document.querySelector(`#left-arrow`);
+const sliderFactName = document.querySelector(`#fact-name`);
+const rightArrow = document.querySelector(`#right-arrow`);
 
 // const factsNumbers = document.querySelectorAll(`.facts-numbers`);
 
@@ -36,22 +40,23 @@ factsSections.forEach((sec) => {
   listItem.textContent = `${secName}`;
   // give them all a class
   listItem.className = `facts-list-items`;
+  factsListTop.appendChild(listItem);
   // Append the list item to the facts list
   // a function to decide the media query
-  function myFunction(x) {
-    // if the screen is less than 768px append the created listITems to the bottom navbar
-    if (x.matches) {
-      // If media query matches
-      factsListBottom.appendChild(listItem);
-    } else {
-      // if the screen is not less than 768px append the created listITems to the top navbar
-      factsListTop.appendChild(listItem);
-    }
-  }
+  // function myFunction(x) {
+  // // if the screen is less than 768px append the created listITems to the bottom navbar
+  // if (x.matches) {
+  //   // If media query matches
+  //   factsListBottom.appendChild(listItem);
+  // } else {
+  //   // if the screen is not less than 768px append the created listITems to the top navbar
+  //   factsListTop.appendChild(listItem);
+  //   }
+  // }
 
-  var x = window.matchMedia("(max-width: 768px)");
-  myFunction(x); // Call listener function at run time
-  x.addListener(myFunction); // Attach listener function on state changes
+  // var x = window.matchMedia("(max-width: 768px)");
+  // myFunction(x); // Call listener function at run time
+  // x.addListener(myFunction); // Attach listener function on state changes
 
   // create a number span
   const noSpan = document.createElement(`span`);
@@ -208,11 +213,18 @@ factsItems.forEach((x) => {
 
 textMeBtn.forEach((btn) => {
   btn.addEventListener(`click`, (_) => {
-    textMeSection.classList.remove(`hidden`);
-    factsSectionsAndNumbersHolder.classList.add(`hidden`);
+    // chanfe btn text
+    if (btn.innerHTML === ` Send me a message `) {
+      btn.innerHTML = `Show Facts`;
+    } else {
+      btn.innerHTML = ` Send me a message `;
+    }
+    textMeSection.classList.toggle(`hidden`);
+    factsSectionsAndNumbersHolder.classList.toggle(`hidden`);
   });
 });
 
+// Unknown sender functions
 unknownSenderMessage.addEventListener(`mouseover`, (_) => {
   unnecessarySenderInfo.forEach((unnecessaryInput) => {
     unnecessaryInput.style.borderColor = `red`;
@@ -266,3 +278,63 @@ myName.addEventListener(`click`, () => {
   aMessageFromMeDiv.classList.toggle(`hidden`);
 });
 
+// Animated logo
+
+const text = document.querySelector(`.text`);
+
+// separate each character in a span
+// form the innerText of the paragraph get each character as a separate span then join all of these spans together and assign them to the paragraph as an innerHtml
+text.innerHTML = text.innerText
+  .split(``)
+  .map(
+    (character, i) =>
+      // make each char rotates number of  degrees than the previous one (start with 6 and keep testing tell reach the shape you wanted the circle fits), the property in css would be like that transform: rotate(5deg);
+      `<span style = "transform: rotate(${i * 6.3}deg);">${character}</span>`
+  )
+  .join(``);
+
+/*  in the previous logic any white spaces in this code  `<span>${character}</span>` will be inserted in the text as this code represents the html text that considers white spaces.
+Also the semicolon after this code isn't required   */
+
+//Facts Slider
+
+// create a counter with a value of the first fact number
+let counter = 1; // don't forget can't be declared with const
+// Give it a text content like the text of the element with that number
+sliderFactName.textContent = document
+  .querySelector(`[fact-sec-no = '${counter}']`)
+  .getAttribute(`fact-name`);
+
+// when clicking the left arrow
+leftArrow.addEventListener(`click`, function changeSection() {
+  if (counter > 1) {
+    counter--;
+    const currentSection = document.querySelector(
+      `[fact-sec-no = '${counter}']`
+    );
+    sliderFactName.textContent = currentSection.getAttribute(`fact-name`);
+
+    factsSections.forEach((sec) => {
+      sec.classList.add(`hidden`);
+    });
+
+    currentSection.classList.remove(`hidden`);
+  }
+});
+
+rightArrow.addEventListener(`click`, function changeSection() {
+  if (counter < factsSections.length) {
+    counter++;
+    const currentSection = document.querySelector(
+      `[fact-sec-no = '${counter}']`
+    );
+    sliderFactName.textContent = currentSection.getAttribute(`fact-name`);
+
+    factsSections.forEach((sec) => {
+      sec.classList.add(`hidden`);
+    });
+
+    currentSection.classList.remove(`hidden`);
+  }
+});
+// rightArrow.addEventListener(`click`, () => changeSection(5));
