@@ -57,9 +57,9 @@
         </div>
         <main>
             <div class="container">
-                <div class="hidden" id="facts-sections-and-numbers">
-                    <div id="facts-sections-holder">
-                        <section id="loyality-sec" class="facts-sections" fact-sec-no="1" fact-name="Loyal">
+                <div id="facts-sections-and-numbers">
+                    <div id="facts-sections-holder" class = "hidde">
+                        <section id="loyality-sec" class="facts-sections " fact-sec-no="1" fact-name="Loyal">
                             <h1> <!-- takes the title dynamically from the attribute fact-name --> </h1>
                             <p> However, this doesn’t center the image and that’s a pretty common desire here… So, we
                                 can
@@ -84,7 +84,12 @@
                                 fix that by wrapping the image
                                 in a div. That div we’ll make twice as big as the browser window. Then the image will be
                                 placed, still preserving it’s
-                                aspect ratio and covering the visible browser window, and the dead center of that. </p>
+                                aspect ratio and covering the visible browser window, and the dead center of that
+                                can
+                                fix that by wrapping the image
+                                in a div. That div we’ll make twice as big as the browser window. Then the image will be
+                                placed, still preserving it’s
+                                aspect ratio and covering the visible browser window, and the dead center of tha. </p>
                         </section>
                         <section id="-sec" class="facts-sections hidden" fact-sec-no="4" fact-name="Men don't cry">
                             <h1> </h1>
@@ -105,6 +110,15 @@
                                 aspect ratio and covering the visible browser window, and the dead center of that. </p>
                         </section>
                     </div>
+
+                    <div id="animated-logo">
+                        <div class="circle">
+                            <div class="logo"></div>
+                            <div class="text-div">
+                                <p class="text"> Ahmad Hasseb - Creative frontend developer and designer -</p>
+                            </div>
+                        </div>
+                    </div>
                     <div id="facts-numbers-holder">
                         <!-- <span fact-no="1"> 01 </span> <span fact-no="2">02</span> <span fact-no="3"> 03 </span><span
                             fact-no="4"> 04 </span> <span fact-no="5"> 05 </span><span fact-no="6"> 06
@@ -113,7 +127,7 @@
                 </div>
 
                 <!-- Contacting form -->
-                <div id="text-me" class="idden">
+                <div id="text-me" class="hidden">
                     <h1>Send me a message</h1>
                     <div id="message-container">
 
@@ -147,16 +161,20 @@
                 <div id="developer">
                     <p> This site is designed and developed by Eng.<span id="my-name">
                             Ahmad Haseeb </span> </p>
-                    <div id="developer-contacting-icons" class="developer-social">
-                        <a href="https://www.facebook.com/Alphauseracc" target="_blank"> <i
-                                class="fa-brands fa-facebook"></i>
-                        </a>
-                        <a href="mailto:amduseracc@gmail.com" target="_blank"> <i class="fa-solid fa-at"></i> </a>
-                        <a href="https://wa.me/+201555807058" target="_blank"> <i class="fa-brands fa-whatsapp"
-                                style='font-weight:600;'></i> </a>
-                        <a target="_blank"> <i class="fa-solid fa-square-phone-flip"></i> </a>
-                        <a target="_blank"> <i class="fa-brands fa-github"></i> </a>
+                    <div id="developer-icons-section">
+                        <div id="developer-contacting-icons" class="developer-social">
+                            <a href="https://www.facebook.com/Alphauseracc" target="_blank"> <i
+                                    class="fa-brands fa-facebook"></i>
+                            </a>
+                            <a href="mailto:amduseracc@gmail.com" target="_blank"> <i class="fa-solid fa-at"></i> </a>
+                            <a href="https://wa.me/+201555807058" target="_blank"> <i class="fa-brands fa-whatsapp"
+                                    style='font-weight:600;'></i> </a>
+                            <a target="_blank"> <i class="fa-solid fa-square-phone-flip"></i> </a>
+                            <a target="_blank"> <i class="fa-brands fa-github"></i> </a>
+                        </div>
                     </div>
+
+
                 </div>
                 <div id="about-me" class="hidden">
                     <p>Hello this is Ahmad Haseeb, I have designed and developed this site just to publish some of the
@@ -170,17 +188,15 @@
         </footer>
         <div class="container">
 
-            <nav id="bottom-navbar" class='navbar'>
+            <div id="facts-slider" class="hidden">
+                <i id="left-arrow" class="fa-solid fa-arrow-left"></i>
+                <span id="fact-name"> Fact Name </span>
+                <i id="right-arrow" class="fa-solid fa-arrow-right"></i>
+            </div>
+            <!-- <nav id="bottom-navbar" class='navbar'>
                 <ul id="bottom-facts-list" class="facts-list">
-                    <!-- <li fact="1"> Loyal </li>
-                            <li fact="2"> Sensere </li>
-                            <li fact="3"> Trust issues </li>
-                            <li fact="4"> Men don't cry </li>
-                            <li fact="5"> Dreaming </li>
-                            <li fact="6"> Travelling </li>
-                            <li fact="6"> Been through </li> -->
-                </ul>
-            </nav>
+                   
+            </nav> -->
         </div>
 
     </div>
