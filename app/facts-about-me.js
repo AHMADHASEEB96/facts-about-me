@@ -11,12 +11,16 @@ const factsListTop = document.querySelector(`#top-facts-list`);
 const factsListBottom = document.querySelector(`#bottom-facts-list`);
 const factsNumbersList = document.querySelector(`#facts-numbers-holder`);
 const textMeBtn = document.querySelectorAll(`.text-me-btn`);
+const mainTextMeBtn = document.querySelector(`#main-text-me-btn`);
+const mainTextMeIcon = document.querySelector(`#text-me-icon`);
 const textMeSection = document.getElementById(`text-me`);
 const unknownSenderMessage = document.querySelector(`.hide-sender-info`);
 const unnecessarySenderInfo = document.querySelectorAll(`.hide-info`);
 const aMessageFromMeDiv = document.getElementById(`about-me`);
 const myName = document.getElementById(`my-name`);
-// slider arrows
+// slider 
+
+const factsSlider = document.querySelector(`#facts-slider`);
 const leftArrow = document.querySelector(`#left-arrow`);
 const sliderFactName = document.querySelector(`#fact-name`);
 const rightArrow = document.querySelector(`#right-arrow`);
@@ -211,15 +215,20 @@ factsItems.forEach((x) => {
 
 // When clicking the text me btn
 
+// const trimmedTextMeBtn = textMeBtn.textContent = textMeBtn.textContent.trim()
+// by clicking any of the two text me buttons
 textMeBtn.forEach((btn) => {
   btn.addEventListener(`click`, (_) => {
-    // chanfe btn text
-    if (btn.innerHTML === ` Send me a message `) {
-      btn.innerHTML = `Show Facts`;
+    // chance btn text content only for the main button
+
+    if (mainTextMeBtn.innerHTML === `Send me a message`) {
+      mainTextMeBtn.innerHTML = `Show Facts`;
     } else {
-      btn.innerHTML = ` Send me a message `;
+      mainTextMeBtn.innerHTML = `Send me a message`;
     }
+    // for both the main and the extra text me buttons toggle the text me section and icon by clicking
     textMeSection.classList.toggle(`hidden`);
+    mainTextMeIcon.classList.toggle(`hidden`);
     factsSectionsAndNumbersHolder.classList.toggle(`hidden`);
   });
 });
@@ -338,3 +347,13 @@ rightArrow.addEventListener(`click`, function changeSection() {
   }
 });
 // rightArrow.addEventListener(`click`, () => changeSection(5));
+
+// scroll to slider section by clicking at any position in the page
+const body = document.body;
+body.addEventListener(`click`, () => {
+factsSlider.scrollIntoView({
+  behavior: "smooth",
+  block: "end",
+  inline: "nearest",
+});
+})

@@ -211,6 +211,10 @@ main .container {
 
 #text-me-div {
   justify-content: flex-end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap : 10px;
 }
 .text-me-btn {
   border: none;
