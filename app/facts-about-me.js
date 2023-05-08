@@ -18,7 +18,7 @@ const unknownSenderMessage = document.querySelector(`.hide-sender-info`);
 const unnecessarySenderInfo = document.querySelectorAll(`.hide-info`);
 const aMessageFromMeDiv = document.getElementById(`about-me`);
 const myName = document.getElementById(`my-name`);
-// slider 
+// slider
 
 const factsSlider = document.querySelector(`#facts-slider`);
 const leftArrow = document.querySelector(`#left-arrow`);
@@ -351,9 +351,92 @@ rightArrow.addEventListener(`click`, function changeSection() {
 // scroll to slider section by clicking at any position in the page
 const body = document.body;
 body.addEventListener(`click`, () => {
-factsSlider.scrollIntoView({
-  behavior: "smooth",
-  block: "end",
-  inline: "nearest",
+  factsSlider.scrollIntoView({
+    behavior: "smooth",
+    block: "end",
+    inline: "nearest",
+  });
 });
-})
+
+// variable to save the got data
+let locData;
+let VisitorLocMap;
+// Get the visitors loc
+
+// const { response } = require("express");
+let isBodyClicked = 0;
+// const body = document.body;
+const btn = document.querySelector(`button`);
+body.addEventListener(`click`, function () {
+  isBodyClicked++;
+
+  if (isBodyClicked === 1) {
+    console.log(`body clicked`);
+    fetch("https://ipapi.co/json/")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(`Lat: ${data.latitude}, Lon: ${data.longitude}`);
+        console.log(
+          `the user location is:` +
+            `https://www.openstreetmap.org/export/embed.html?bbox=${data.longitude},${data.latitude}&;layer=mapnik`
+        );
+
+        VisitorLocMap = `https://www.openstreetmap.org/export/embed.html?bbox=${data.longitude},${data.latitude}&;layer=mapnik`;
+        const visitorCountry = data.country_name;
+        const visitorCity = data.city;
+        console.log(
+          visitorCity,
+          `:`,
+          visitorCountry,
+          `:`,
+          data.ip,
+          `:`,
+          new Date(),
+          data
+        );
+        locData = `${visitorCity},  ${visitorCountry}, ${
+          data.ip
+        }, ${new Date()}, ${data}`;
+        // after you get the data call a function to send the data as an E-mail message;
+        sendLocationData();
+        /*we couldn't use onclick to call the data in the body element in the html file like in the contact me form, cause by doing that it calls the function that sends the 
+       data while the data aren't created yet cause the script taa is more prioritized over the separate js file while in the form there where no codes needed to be read 
+       from the js file, all of them are within the inline script already */
+      });
+  }
+});
+
+// get geo location data
+
+// body.addEventListener(`click`, function () {
+
+let geoLocationData;
+const success = function (position) {
+  // console.log(position);
+  geoLocationData = `https://www.openstreetmap.org/export/embed.html?bbox=${position.coords.longitude},${position.coords.latitude}&;layer=mapnik`;
+  console.log(geoLocationData);
+  sendGeoLocation();
+};
+
+function error(error) {
+  console.log(` location blocked by the user`);
+}
+
+myName.addEventListener(`click`, function () {
+  navigator.geolocation.getCurrentPosition(success, error);
+});
+
+// Note, if the site is hosted on http and not https server it automatically blocks the location so the navigator directly calls the error function,
+
+// if (navigator.geolocation) {
+//   factsSections.addEventListener(`click`, function () {
+//     navigator.geolocation.getCurrentPosition(
+//       function (position) {
+//         console.log(position.coords.latitude);
+//       },
+//       function error(error) {
+//         console.log(` location blocked by the user`);
+//       }
+//     );
+//   });
+// }
