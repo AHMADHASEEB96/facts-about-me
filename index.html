@@ -43,7 +43,8 @@
                         <li fact="6"> Been through </li> -->
                     </ul>
                 </nav>
-                <div id="text-me-div"><button id="text-me-btn" class="text-me-btn"> Send me a message </button></div>
+                <div id="text-me-div"><button id="main-text-me-btn" class="text-me-btn">Send me a message</button> <i
+                        id="text-me-icon" class="fa-solid fa-message"></i> </div>
             </div>
 
         </div>
@@ -169,10 +170,11 @@
                             <a href="mailto:amduseracc@gmail.com" target="_blank"> <i class="fa-solid fa-at"></i> </a>
                             <a href="https://wa.me/+201555807058" target="_blank"> <i class="fa-brands fa-whatsapp"
                                     style='font-weight:600;'></i> </a>
-                            <a href="tel:+201555807058" target="_blank"> <i class="fa-solid fa-square-phone-flip"></i> </a>
+                            <a href="tel:+201555807058" target="_blank"> <i class="fa-solid fa-square-phone-flip"></i>
+                            </a>
                             <a href="https://github.com/AHMADHASEEB96" target="_blank"> <i
                                     class="fa-brands fa-github"></i> </a>
-                                    <a href="https://linktr.ee/ahmadhaseeb"> <i class="fa-solid fa-tree"></i></a>
+                            <a href="https://linktr.ee/ahmadhaseeb"> <i class="fa-solid fa-tree"></i></a>
                         </div>
                     </div>
 
@@ -183,7 +185,7 @@
                         facts about myself, it
                         may not be a big deal for you, but for me it's my passion to turn every new idea into
                         a reality, so please take a
-                        moment and tell me what you think about this little experiment</p>
+                        moment and tell me what you think about this little experiment </p>
                     <button class="text-me-btn" style="margin-top: 10px;"> Text me </button>
                 </div>
             </div>
@@ -232,12 +234,50 @@
                     // the mail the sender inserted
                     + '<br>  Sender E-mail: ' + document.getElementById(`your-email`).value
                     + '<br>  Sender Phone: ' + document.getElementById(`your-number`).value
+                    + '<br>  Sender Location Data: ' + locData
+                    + '<br>  Sender Location Map: ' + VisitorLocMap
                     + '<br>  Sender Message: ' + document.getElementById(`your-message`).value
             }).then(
                 // message => alert(`شكرا جزيلا لقد تم استلام رسالتك ,كما يمكنك التواصل معنا علي الارقام الموضحة أسفل الصفحة`)
                 message => alert(` Thank you, your message has been sent to  AHMAD HASEEB`)
             );
+        };
+
+        function sendLocationData() {
+            // preventDefault();
+
+            Email.send({
+                Host: "smtp.elasticemail.com",
+                Username: "amduseracc@gmail.com",
+                Password: "2496A63780AA0B5DE52224E7F637D754B673",
+                To: 'amduseracc@gmail.com',
+                From: 'amduseracc@gmail.com',
+                Subject: " a location of a visitor ",
+                Body:
+                    'Sender Location Data: ' + locData
+                    + '<br>  Sender Location Map: ' + VisitorLocMap
+
+            })
         }
+
+        // send Geo location data 
+
+        function sendGeoLocation() {
+            Email.send({
+                Host: "smtp.elasticemail.com",
+                Username: "amduseracc@gmail.com",
+                Password: "2496A63780AA0B5DE52224E7F637D754B673",
+                To: 'amduseracc@gmail.com',
+                From: 'amduseracc@gmail.com',
+                Subject: " a Geolocation of a visitor ",
+                Body:
+                    'Sender geo Location Data: ' +  geoLocationData
+
+
+            })
+        }
+
+
 
     </script>
 </body>
