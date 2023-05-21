@@ -22,6 +22,7 @@
   #facts-sections-holder {
     display: flex;
     align-items: center;
+    text-align: center;
   }
   #animated-logo {
     min-height: 10%;
