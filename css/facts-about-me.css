@@ -86,7 +86,7 @@ button {
 
 .hidden {
   display: none !important;
-  /* visibility: hidden; */ 
+  /* visibility: hidden; */
   /* width: 0px; */
   /* cant use those two last properties cause in media query when i change the display to block or flex still those tow properties will be activated marking the elements 
   not visible and its width is zero */
@@ -180,6 +180,7 @@ main .container {
   margin: 0;
   z-index: -1;
 }
+
 #page-bar .container {
   display: flex;
   justify-content: center;
@@ -214,7 +215,7 @@ main .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap : 10px;
+  gap: 10px;
 }
 .text-me-btn {
   border: none;
@@ -251,8 +252,7 @@ main .container {
 }
 
 #facts-sections-holder {
-  flex: 3;
- 
+  flex: content;
 }
 
 .facts-sections {
@@ -273,13 +273,27 @@ main .container {
   width: 80%;
 }
 
+ span#My-mess-note {
+  color: red;
+  display: block;
+  
+}
+
+#My-mess-p span:not(:first-child) {
+  display: block;
+  color: #0097b2;
+  padding: 2px;
+}
+
 #facts-numbers-holder {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: fit-content;
-  flex: 1;
+  flex: auto;
   align-items: flex-end;
+  margin-left: 60px; 
+  /* Giving flex : auto; makes the item takes the min width, so it might attach to the next ones thats why here it takes margin */
 }
 
 #facts-numbers-holder span {
@@ -426,7 +440,6 @@ textarea {
   -o-border-radius: 5px;
 }
 
- 
 #unknown-sender p {
   width: 50%;
 }
@@ -521,7 +534,6 @@ textarea {
   transform-origin: 0 100px; /*  to be half  of the parent width or height, study it more */
 }
 
-
 /* A better idea , choose a number of photos not only one, every second change the src of the logo using set time out  */
 
 #facts-slider {
@@ -529,10 +541,10 @@ textarea {
   justify-content: space-around;
   align-items: center;
 
-  padding : 10px ;
-  margin: 10px 0; 
+  padding: 10px;
+  margin: 10px 0;
 }
 
-#facts-slider  i {
+#facts-slider i {
   font-size: 2rem;
 }

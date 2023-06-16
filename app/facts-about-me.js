@@ -18,6 +18,10 @@ const unknownSenderMessage = document.querySelector(`.hide-sender-info`);
 const unnecessarySenderInfo = document.querySelectorAll(`.hide-info`);
 const aMessageFromMeDiv = document.getElementById(`about-me`);
 const myName = document.getElementById(`my-name`);
+// const myMessageLi = document.querySelector(`#id-6`);
+// console.log(myMessageLi); Can't target an item before it is created
+// myMessageLi.style.color = "red";
+const animatedLogo = document.querySelector(`#animated-logo`);
 // slider
 
 const factsSlider = document.querySelector(`#facts-slider`);
@@ -40,6 +44,8 @@ factsSections.forEach((sec) => {
   const listItem = document.createElement(`li`);
   // give it a number
   listItem.setAttribute(`fact`, `${secNo}`);
+  // give it an id
+  listItem.id = `id-${secNo}`;
   // give it a text
   listItem.textContent = `${secName}`;
   // give them all a class
@@ -193,6 +199,8 @@ factsNumbers.forEach((x) => {
 // Interacting with the fact list items
 factsItems.forEach((x) => {
   x.addEventListener(`click`, function revealFact() {
+    // Show the animated logo again if the my message li is clicked
+    animatedLogo.classList.remove(`hidden`);
     // Hide the Contacting form if open;
     textMeSection.classList.add(`hidden`);
     factsSectionsAndNumbersHolder.classList.remove(`hidden`);
@@ -212,6 +220,14 @@ factsItems.forEach((x) => {
     });
   });
 });
+// target the message form me list item
+const myMessageLi = document.querySelector(`#id-6`);
+myMessageLi.addEventListener(`click`, () => {
+  animatedLogo.classList.add(`hidden`);
+});
+/* This code needs to be here not before the interacting with li code, cause this later one shows the animated logo as 
+shown in the first line of code, so when the message from me li is clicked the animated logo will display thats why we put this code in here
+to hide it again. */
 
 // When clicking the text me btn
 
