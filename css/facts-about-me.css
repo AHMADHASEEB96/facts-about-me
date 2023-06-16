@@ -273,10 +273,12 @@ main .container {
   width: 80%;
 }
 
- span#My-mess-note {
+#mymess-sec {
+  font-size: 0.9em; /* makes each element takes .9 of its current font size */
+}
+span#My-mess-note {
   color: red;
   display: block;
-  
 }
 
 #My-mess-p span:not(:first-child) {
@@ -292,7 +294,7 @@ main .container {
   height: fit-content;
   flex: auto;
   align-items: flex-end;
-  margin-left: 60px; 
+  margin-left: 60px;
   /* Giving flex : auto; makes the item takes the min width, so it might attach to the next ones thats why here it takes margin */
 }
 
