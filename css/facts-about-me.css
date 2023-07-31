@@ -492,7 +492,7 @@ textarea {
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
  
-  background-image: URL("./media/images/Ahmad.jpg");
+  background-image: URL("media/images/Ahmad.jpg");
   background-size: cover;
 }
 
