@@ -48,19 +48,15 @@
     display: none;
   }
 
-  #facts-sections-holder {
-    /* overflow: hidden; */
-  }
-  
   #My-mess-p {
     max-width: 100%;
     overflow: auto;
     /* overflow: hidden; */
     font-size: x-small;
   }
- #My-mess-p {
-  overflow: hidden;
- }
+  #My-mess-p {
+    overflow: hidden;
+  }
 
   #facts-sections-holder p {
     width: 100%;

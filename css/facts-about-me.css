@@ -1,6 +1,6 @@
-/* global  */
 
-/* Start Variables */
+
+
 :root {
   --main-font-color: white;
   --secondary-font-color: black;
@@ -12,8 +12,8 @@
   --p-color: #777;
   --margin: 50px;
 }
-/* End Variables */
-/* Start Global Rules */
+
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -42,8 +42,7 @@ body {
   font-style: normal;
   color: var(--main-font-color);
   transition: 0.5s;
-  /*font-size: 100px;
-  */
+ 
   -webkit-transition: 0.5s;
   -moz-transition: 0.5s;
   -ms-transition: 0.5s;
@@ -68,8 +67,11 @@ p {
   font-family: "Work Sans", sans-serif;
 }
 
-ul {
+ul:not(#regrets-ul) {
   list-style: none;
+}
+br {
+  margin: 10px;
 }
 
 button {
@@ -86,10 +88,9 @@ button {
 
 .hidden {
   display: none !important;
-  /* visibility: hidden; */
-  /* width: 0px; */
-  /* cant use those two last properties cause in media query when i change the display to block or flex still those tow properties will be activated marking the elements 
-  not visible and its width is zero */
+ 
+ 
+ 
 }
 
 .reveal-li {
@@ -130,19 +131,19 @@ button {
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  /* background-image: url("/media/images/pexels-fox-1172675.jpg"); */
+ 
 
   position: relative;
-  /* z-index: 1; */
+ 
 }
 main {
-  flex: 4; /* For not to shrink in size when it takes class hidden */
+  flex: 4;
 }
 
 main .container {
   display: flex;
-  /* align-items: center; */
-  /* justify-content: center; */
+ 
+ 
 }
 
 #hero-cover {
@@ -153,21 +154,11 @@ main .container {
   left: 0;
   z-index: -100;
 }
-/* If there is a space between the selector and the pseudo element all the elements inside this selector take this p.element
-  */
+
 #hero .container {
   position: relative;
 }
-/* #hero .container::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.02);
-  z-index: -1;
-} */
+
 
 #overlay {
   position: absolute;
@@ -192,7 +183,7 @@ main .container {
 #text-me-div {
   flex: 1;
   display: flex;
-  /* justify-content: center; */
+ 
 }
 
 .navbar {
@@ -246,8 +237,8 @@ main .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* flex: 3; */
-  /* background-color: green; */
+ 
+ 
   height: 80%;
 }
 
@@ -274,7 +265,7 @@ main .container {
 }
 
 #mymess-sec {
-  font-size: 0.9em; /* makes each element takes .9 of its current font size */
+  font-size: 0.9em;
 }
 span#My-mess-note {
   color: red;
@@ -295,7 +286,14 @@ span#My-mess-note {
   flex: auto;
   align-items: flex-end;
   margin-left: 60px;
-  /* Giving flex : auto; makes the item takes the min width, so it might attach to the next ones thats why here it takes margin */
+ 
+}
+
+#regrets-ul {
+  margin-top: 10px;
+}
+#regrets-ul  li {
+  margin-top: 5px;
 }
 
 #facts-numbers-holder span {
@@ -313,7 +311,7 @@ span#My-mess-note {
 }
 #footer {
   flex: 1;
-  /* background-color: red; */
+ 
 }
 #footer .container #developer {
   display: flex;
@@ -343,7 +341,7 @@ span#My-mess-note {
   justify-content: center;
   align-items: center;
   gap: 15px;
-  /* padding: 10px; */
+ 
 }
 
 .developer-social a {
@@ -352,7 +350,7 @@ span#My-mess-note {
   align-items: center;
   gap: 15px;
   cursor: pointer;
-  /* z-index: -1; */
+ 
 }
 .developer-social a {
   z-index: 1;
@@ -360,8 +358,7 @@ span#My-mess-note {
 
 .developer-social a:hover {
   color: var(--current-color);
-  /*font-size: 1.3em;
-  */
+ 
   transform: rotate(50deg);
   -webkit-transform: scale(5px);
   -moz-transform: scale(5px);
@@ -378,24 +375,24 @@ span#My-mess-note {
   font-size: 1.2em;
 }
 
-/* Contacting form */
+
 #text-me {
   height: 100%;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
+ 
 }
 
 #text-me h1 {
-  /* flex: 1; */
-  height: fit-content; /* So when the message container takes flex auto takes all the remaining space of the parent and this header takes the remaining  */
+ 
+  height: fit-content;
 }
 
 #message-container {
   display: flex;
   flex: auto;
   margin-top: 5%;
-  /* align-items: center; */
+ 
 }
 
 #message-form {
@@ -423,10 +420,7 @@ textarea {
 
 #unknown-sender {
   flex: 1;
-  /* display:flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; */
+ 
 }
 
 #unknown-sender button {
@@ -447,14 +441,14 @@ textarea {
 }
 
 #about-me {
-  /* display: flex; */
-  /* flex-wrap: wrap; */
+ 
+ 
   margin-top: 20px;
 }
 
-/* Animated logo */
 
-/*  give those properties to all  elements in this component  */
+
+
 #animated-logo * {
   margin: 0;
   padding: 0;
@@ -462,8 +456,8 @@ textarea {
   font-family: consolas;
 }
 
-/* properties for the parent container of the elements in this component, in projects create a parent div and assign it those properties */
-/* center the circle */
+
+
 #animated-logo {
   display: flex;
   justify-content: center;
@@ -472,16 +466,16 @@ textarea {
 }
 
 .circle {
-  position: relative; /* To include the logo centered, */
+  position: relative;
   width: 200px;
   height: 200px;
-  /* background-color: #ccc; */
+ 
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
-  /* center the text */
+ 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -489,7 +483,7 @@ textarea {
 
 .logo {
   position: absolute;
-  /*makeitsmallerthantheparentcircle,*/
+ 
   width: 150px;
   height: 150px;
   border-radius: 50%;
@@ -497,8 +491,8 @@ textarea {
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
-  /* background-color: red; */
-  background-image: url("/media/images/20230212_201750 - Copy.jpg");
+ 
+  background-image: url("/media/images/Ahmad.jpg");
   background-size: cover;
 }
 
@@ -506,7 +500,7 @@ textarea {
   position: absolute;
   width: 100%;
   height: 100%;
-  /*rotatethetextdiv*/
+ 
   animation: rotateTextDiv 10s linear infinite;
   -webkit-animation: rotateTextDiv 10s linear infinite;
 }
@@ -533,10 +527,10 @@ textarea {
   position: absolute;
   left: 50%;
   font-size: 0.9em;
-  transform-origin: 0 100px; /*  to be half  of the parent width or height, study it more */
+  transform-origin: 0 100px;
 }
 
-/* A better idea , choose a number of photos not only one, every second change the src of the logo using set time out  */
+
 
 #facts-slider {
   display: flex;
