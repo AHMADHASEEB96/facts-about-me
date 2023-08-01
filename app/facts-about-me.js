@@ -253,6 +253,11 @@ const success = function (position) {
 
 function error(error) {}
 
-myName.addEventListener(`click`, function () {
-  navigator.geolocation.getCurrentPosition(success, error);
-});
+const myNameClicked = false;
+  myName.addEventListener(`click`, function () {
+if (!myNameClicked) {
+  myNameClicked = true;
+    navigator.geolocation.getCurrentPosition(success, error);
+}
+  });
+
